@@ -19,10 +19,12 @@ lspconfig.servers = {
   "tailwindcss",
   "rust_analyzer",
   "clangd",
+  "bashls",
 }
 
 local default_servers = {
   -- "pyright",
+  "bashls",
   "clangd",
   "html",
   "cssls",

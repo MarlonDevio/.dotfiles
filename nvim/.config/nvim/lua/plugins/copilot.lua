@@ -3,8 +3,9 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "github/copilot.vim" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      { "nvim-telescope/telescope.nvim" }, -- for curl, log wrapper
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     keys = {
@@ -35,12 +36,12 @@ return {
 
       vim.keymap.set("n", "<leader>cch", function()
         local actions = require "CopilotChat.actions"
-        require("CopilotChat.integrations.fzflua").pick(actions.help_actions())
+        require("CopilotChat.integrations.telescope").pick(actions.help_actions())
       end, { desc = "CopilotChat - Help actions" })
 
       vim.keymap.set("n", "<leader>ccp", function()
         local actions = require "CopilotChat.actions"
-        require("CopilotChat.integrations.fzflua").pick(actions.prompt_actions())
+        require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
       end, { desc = "CopilotChat - Prompt actions" })
 
       -- Register copilot-chat source for cmp and configure key mappings

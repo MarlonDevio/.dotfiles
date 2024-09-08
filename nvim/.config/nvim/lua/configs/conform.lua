@@ -10,6 +10,7 @@ local options = {
     javascriptreact = { "prettier" },
     typescript = { "prettier" },
     json = { "prettier" },
+    bash = { "beautysh" },
     php = { "php_cs_fixer" },
     blade = { "blade-formatter", "rustywind" },
   },
