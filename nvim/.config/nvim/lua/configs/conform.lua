@@ -11,7 +11,7 @@ local options = {
     typescript = { "prettier" },
     json = { "prettier" },
     bash = { "beautysh" },
-    php = { "php_cs_fixer" },
+    php = { "php_cs_fixer", "phpcbf" },
     blade = { "blade-formatter", "rustywind" },
   },
 
@@ -49,6 +49,14 @@ local options = {
         "-",
       },
       stdin = true,
+    },
+    phpcbf = {
+      command = "phpcbf", -- Command to use PHPCBF
+      args = {
+        "--standard=PSR2", -- You can use other standards like PSR12 or custom ones
+        "-",
+      },
+      stdin = true, -- Use stdin for content formatting
     },
   },
 

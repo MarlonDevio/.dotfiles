@@ -26,11 +26,11 @@ config = {
 		{
 			source = {
 				-- File = "/Users/marlon/Pictures/wallpaper/1-10881_mac-os-mojave-wallpaper-4k.jpg",
-				--				File = "/Users/marlon/Pictures/wallpaper/wallpapersden.com_macos-12-monterey-digital_3840x2160.jpg",
+				File = "/Users/marlon/Pictures/wallpaper/wallpapersden.com_macos-12-monterey-digital_3840x2160.jpg",
 				-- File = "/Users/marlon/Pictures/wallpaper/metallic-pink.png",
 				-- File = "/Users/marlon/Pictures/wallpaper/broken-glass-pieces-red-4k-at.jpg",
 				-- File = "/Users/marlon/Pictures/wallpaper/glass-blurred.jpg",
-				File = "/Users/marlon/Pictures/wallpaper/blurred-colours.jpg",
+				--				File = "/Users/marlon/Pictures/wallpaper/blurred-colours.jpg",
 			},
 			hsb = {
 				hue = 1.0,
@@ -43,9 +43,9 @@ config = {
 		},
 		{
 			source = {
-				-- Color = "#242937",
+				Color = "#242937",
 				-- Color = "#282c35",
-				Color = "#ffffff",
+				-- Color = "#ffffff",
 				--	Color = "#720041",
 			},
 			hsb = {
@@ -55,7 +55,7 @@ config = {
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.25,
+			opacity = 0.55,
 		},
 		{
 			source = {

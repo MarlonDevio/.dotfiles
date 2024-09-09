@@ -162,7 +162,6 @@ function spdf() {
  }
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to
-export PATH="/Applications/XAMPP/bin:$PATH"
 export PATH="~/bin:$PATH"
 
 source ~/.aliases.zsh
@@ -208,3 +207,4 @@ export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
 export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+eval "$(gh copilot alias -- zsh)"

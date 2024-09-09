@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+search_and_preview() {
+  local SEARCH_TERM=$1
+  local SEARCH_DIR=$2
+
+  if [ -z "$SEARCH_TERM" ]; then
+    echo "Usage: search_and_preview <search-term> [search-dir]"
+    return 1
+  fi
+
+  # Define ignore patterns with single quotes to prevent zsh from interpreting the '!' character
+  local IGNORE_PATTERNS="--glob '!node_modules/*' --glob '!package-lock.json' --glob '!.git/*'"
+
+  # Split the current tmux window into two panes
+  tmux split-window -h -p 50
+
+  # Run fzf in the left pane with bat preview in the right pane
+  if [ -n "$SEARCH_DIR" ]; then
+    # When a search directory is provided
+    tmux send-keys -t left "eval rg --column --line-number --no-heading --color=always $IGNORE_PATTERNS \"$SEARCH_TERM\" \"$SEARCH_DIR\" | fzf --ansi --delimiter : --preview 'bat --style=numbers --color=always --highlight-line {2} {1}' --bind 'enter:execute(tmux send-keys -t right \"nvim {1} +{2}\" Enter)'" C-m
+  else
+    # When no search directory is provided, search in the current directory
+    tmux send-keys -t left "eval rg --column --line-number --no-heading --color=always $IGNORE_PATTERNS \"$SEARCH_TERM\" | fzf --ansi --delimiter : --preview 'bat --style=numbers --color=always --highlight-line {2} {1}' --bind 'enter:execute(tmux send-keys -t right \"nvim {1} +{2}\" Enter)'" C-m
+  fi
+
+  # Focus on the left pane initially
+  tmux select-pane -t left
+}
+
+# If the script is called directly, execute the function with the provided arguments
+if [[ "${(%):-%N}" == "${0}" ]]; then
+  search_and_preview "$@"
+fi

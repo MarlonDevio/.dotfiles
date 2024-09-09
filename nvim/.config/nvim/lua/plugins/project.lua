@@ -1,13 +1,33 @@
 local project = {
+
   "ahmedkhalf/project.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
+    "nvim-tree/nvim-tree.lua",
   },
+
   keys = {
     { "<space>l" },
+    { "<C-n>" },
   },
+
   config = function()
+    local nvim_tree = require "nvim-tree"
+    local nvim_tree_api = require "nvim-tree.api"
+    nvim_tree.setup {
+      sync_root_with_cwd = true,
+      respect_buf_cwd = true,
+      update_focused_file = {
+        enable = true,
+        update_root = true,
+      },
+      vim.keymap.set({ "n", "x", "i" }, "<C-n>", function()
+        nvim_tree_api.tree.toggle()
+      end, { desc = "NvimTree Toggle" }),
+    }
+    -- nvim-tree setup
+    -- project.nvim setup
     local p = require("project_nvim").setup {
       -- Automatically change to the root directory without manual intervention
       manual_mode = false,
@@ -31,20 +51,20 @@ local project = {
       silent_chdir = true,
 
       -- Global directory change scope
-      scope_chdir = "global",
+      scope_chdir = "win",
 
       -- Path for storing project history for Telescope
       datapath = vim.fn.stdpath "data",
     }
 
+    -- Load project extension for Telescope
     require("telescope").load_extension "projects"
-
-    vim.keymap.set("n", "<space>lp", function()
+    -- Keybindings for Project and Telescope
+    vim.keymap.set("n", "<space>l", function()
       require("telescope").extensions.projects.projects {}
     end)
-    vim.keymap.set("n", "<space>l", function() end)
+
     return p
   end,
 }
-
 return project

@@ -1,4 +1,5 @@
-
+**/venv/*
+**/venv/
 nvim/.config/.DS_Store
 /nchat/.config/nchat/history
 /nchat/.config/nchat/history

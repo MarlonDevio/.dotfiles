@@ -1,0 +1,17 @@
+{
+  "pieces.cloudCapabilities": "Blended",
+  "pieces.telemetry": false,
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ]
+}

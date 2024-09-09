@@ -5,10 +5,10 @@
 local M = {}
 
 M.base46 = {
-  theme = "ayu_dark",
-  -- transparency = true,
+  theme = "bearded-arc",
+  transparency = false,
   -- hl_override = {
-  -- 	Comment = { italic = true },
+  Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
   -- },
 }

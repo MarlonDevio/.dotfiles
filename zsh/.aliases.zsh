@@ -13,7 +13,7 @@ alias apache_os='/Applications/XAMPP/manager-osx.app/Contents/MacOS/Application\
 alias new_note='~/Scripts/new_note.sh'
 alias gaw='cd /Applications/XAMPP/xamppfiles/htdocs/'
 alias gawr='cd /Applications/XAMPP/xamppfiles/htdocs/reflexor/'
-
+alias gce='gh copilot explain'
 alias setwallpaper='osascript -e '\''tell application "Finder" to set desktop picture to POSIX file'\'
 #utils
 alias extract_font_sizes='/Users/marlon/Scripts/reg_extractor.py'
