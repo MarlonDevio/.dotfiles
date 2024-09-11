@@ -38,6 +38,9 @@ local default_servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(default_servers) do
+  if lsp == "tsserver" then
+    lsp = "ts_ls"
+  end
   lspconfig[lsp].setup {
     on_attach = on_attach,
     on_init = on_init,
