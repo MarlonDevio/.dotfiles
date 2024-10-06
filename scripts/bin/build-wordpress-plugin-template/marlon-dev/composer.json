@@ -1,0 +1,15 @@
+{
+  "name": "marlon/marlon-dev",
+  "description": "A WordPress plugin template with modern tooling",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=7.4",
+    "eftec/bladeone": "^4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Marlon\\MD\\": "src/backend/"
+    }
+  }
+}

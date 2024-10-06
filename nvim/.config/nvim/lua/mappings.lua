@@ -92,4 +92,4 @@ map("n", "<leader>tc", "<cmd>tabnew<CR>")
 map("n", "<leader>tn", "<cmd>tabnext<CR>")
 map("n", "<leader>tp", "<cmd>tabprev<CR>")
 
--- Obsidian
+map("x", "<leader>pp", [["_dP]])

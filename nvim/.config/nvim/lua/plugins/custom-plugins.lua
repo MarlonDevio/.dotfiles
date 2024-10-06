@@ -54,11 +54,33 @@ local plugins = {
     dependencies = {
       "luckasRanarison/tailwind-tools.nvim",
       "onsails/lspkind-nvim",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+
+      {
+        "L3MON4D3/LuaSnip",
+        build = (function()
+          if vim.fn.has "win32" == 1 or vim.fn.executable "make" == 0 then
+            return
+          end
+          return "make install_jsregexp"
+        end)(),
+        dependencies = {
+          {
+            "rafamadriz/friendly-snippets",
+            config = function()
+              require("luasnip.loaders.from_vscode").lazy_load()
+            end,
+          },
+        },
+      },
     },
     opts = function()
       local conf = require "nvchad.configs.cmp"
       local lspkind = require "lspkind"
       local tailwind_tools = require "tailwind-tools.cmp"
+      local cmp = require "cmp"
 
       conf.formatting = {
         format = lspkind.cmp_format {
@@ -84,15 +106,6 @@ local plugins = {
         },
       }
 
-      -- You can add or modify other options here as needed
-      -- For example:
-      -- conf.sources = cmp.config.sources({
-      --   { name = "nvim_lsp" },
-      --   { name = "luasnip" },
-      --   { name = "buffer" },
-      --   { name = "nvim_lua" },
-      -- })
-
       return conf
     end,
   },
@@ -106,21 +119,6 @@ local plugins = {
       local config = spectre.setup()
       return config
     end,
-  },
-
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {},
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-    lazy = "VeryLazy",
-    ft = { "markdown" },
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp",
   },
 
   -- custom/plugins.lua

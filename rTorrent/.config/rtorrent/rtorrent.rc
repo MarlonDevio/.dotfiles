@@ -1,0 +1,15 @@
+# Set default download directory
+directory = ~/Downloads
+
+# Set the port range for incoming connections
+port_range = 6890-6999
+
+# Enable peer exchange (PEX) for finding more peers
+peer_exchange = yes
+
+# Set download and upload rate limits (optional)
+download_rate = 0
+upload_rate = 0
+
+# Default session directory for saving torrent progress
+session = ~/.rtorrent/session

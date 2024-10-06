@@ -17,10 +17,10 @@ local options = {
 
   formatters = {
     prettier = {
-      command = "prettier",
+      command = "/Users/marlon/.local/share/nvim/mason/bin/prettier",
       args = function()
         -- Allow Prettier to find the correct config file automatically
-        return { "--stdin-filepath", vim.api.nvim_buf_get_name(0) }
+        return { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--config-precedence", "prefer-file" }
       end,
       stdin = true,
     },
@@ -62,7 +62,7 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 1000,
+    timeout_ms = 2000,
     lsp_fallback = true,
   },
 }

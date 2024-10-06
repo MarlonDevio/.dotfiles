@@ -14,7 +14,7 @@ lspconfig.servers = {
   "omnisharp",
   "intelephense",
   "ast_grep",
-  "tsserver",
+  "ts_ls",
   "emmet_ls",
   "tailwindcss",
   "rust_analyzer",
@@ -30,7 +30,7 @@ local default_servers = {
   "cssls",
   "pyright",
   "ast_grep",
-  "tsserver",
+  "ts_ls",
   "emmet_ls",
   "tailwindcss",
   "rust_analyzer",
@@ -38,9 +38,9 @@ local default_servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(default_servers) do
-  if lsp == "tsserver" then
-    lsp = "ts_ls"
-  end
+  -- if lsp == "tsserver" then
+  --   lsp = "ts_ls"
+  -- end
   lspconfig[lsp].setup {
     on_attach = on_attach,
     on_init = on_init,
@@ -119,6 +119,9 @@ lspconfig.intelephense.setup {
       files = {
         associations = { "*.php", "*.blade.php" },
         maxsize = 5000000,
+        excluse = {
+          "**/node_modules/**",
+        },
       },
       stubs = {
         "apache",
@@ -175,6 +178,7 @@ lspconfig.intelephense.setup {
         "zip",
         "zlib",
         "wordpress", -- Add WordPress stubs
+        "woocommerce", -- Add WooCommerce stubs
       },
     },
   },

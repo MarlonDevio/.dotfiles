@@ -27,7 +27,8 @@ nmap <C-o> <Action>(Forward)
 nmap <Tab> <Action>(NextTab)
 nmap <S-Tab> <Action>(NextTab)
 
-
+nmap <C-v> <Action>(HideActiveWindow)
+nmap <leader>car <Action>(RenameElement)
 nmap<Action>
 nmap <leader>tt <Action>(ActivateTerminalToolWindow)
 " Press `f` to activate AceJump
@@ -45,14 +46,20 @@ sethandler <C-L> a:vim
 sethandler <C-J> a:vim
 sethandler <C-K> a:vim
 
+nmap <leader>sn <Action>(Settings)
+nmap <leader>l <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <S-Tab> <Action>(PreviousTab)
 nmap <leader>sm <Action>(ShowBookmarks)
-
+nmap <leader>su <Action>(FindUsages)
 " Map Ctrl + h/l/j/k to move between splits in normal mod
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 Plug 'machakann/vim-highlightedyank'
+
+nmap <S-Tab> <Action>(PreviousTab)
+nmap <Tab> <Action>(NextTab)
 
 nmap <leader>sv <Action>(SplitVertically)
 nmap <leader>sh <Action>(SplitHorizontally)
@@ -62,9 +69,10 @@ nmap <leader>sf <Action>(GotoFile)
 nmap <leader>s/ <Action>(Find)
 nmap <leader>sg <Action>(FindInPath)
 
+set ideaglobalmode true
 Plug 'preservim/nerdtree'
 set nerdtree
-map <c-n> :NERDTree<CR>
+map <leader>n :NERDTreeToggle<CR>
 map <c-n>n :NERDTreeClose<CR>
 
 " Harpoon
@@ -132,3 +140,5 @@ nmap <leader>gw <Action>(GotoBookmarkW)
 nmap <leader>gx <Action>(GotoBookmarkX)
 nmap <leader>gy <Action>(GotoBookmarkY)
 nmap <leader>gz <Action>(GotoBookmarkZ)
+
+set ideavimsupport="dialog","singleline"

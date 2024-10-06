@@ -15,7 +15,7 @@ local telescope = {
       conf.defaults.file_ignore_patterns = vim.list_extend(
         conf.defaults.file_ignore_patterns or {}, -- Preserve existing ignore patterns
         {
-          "node%-modules",
+          "node%_modules",
           "pynvim%-venv",
           "pynvim%-venv/.*",
           "pynvim%-venv/**",
@@ -30,10 +30,10 @@ local telescope = {
 
         map("n", "<leader>sk", builtin.keymaps, { desc = "telescope search keymap" }),
         map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" }),
-        map("n", "<leader>sb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" }),
+        map("n", "<leader><leader>", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" }),
         map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" }),
         map("n", "<leader>sm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" }),
-        map("n", "<leader>so", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" }),
+        map("n", "<leader>s.", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" }),
         map(
           "n",
           "<leader>sz",
@@ -61,6 +61,26 @@ local telescope = {
             search_dirs = { "/Users/marlon/" },
           }
         end, { desc = "telescope search home directory" }),
+        map("n", "<leader>sof", function()
+          builtin.find_files {
+            prompt_title = "Search Obsidian Files",
+            shorten_path = true,
+            path_display = { "tail" },
+            search_dirs = {
+              "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/1-rough-notes",
+            },
+          }
+        end, { desc = "Telescope search obsidian files" }),
+        map("n", "<leader>sog", function()
+          builtin.live_grep {
+            prompt_title = "Search Obsidian Grep",
+            shorten_path = true,
+            path_display = { "tail" },
+            search_dirs = {
+              "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/",
+            },
+          }
+        end, { desc = "Telescope Live Grep obsidian files" }),
 
         map("n", "<leader>s/", function()
           builtin.find_files {

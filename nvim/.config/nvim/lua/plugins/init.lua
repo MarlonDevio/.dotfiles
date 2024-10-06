@@ -9,6 +9,8 @@ return {
     end,
   },
 
+  { "ttytm/mason-lspconfig.nvim", branch = "ts-ls" },
+
   {
     "williamboman/mason-lspconfig.nvim",
     event = "VeryLazy",

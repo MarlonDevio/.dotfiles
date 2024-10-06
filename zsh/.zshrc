@@ -203,8 +203,12 @@ function search_content() {
 function search_pdfs() {
     fd --extension pdf | fzf --preview "pdfgrep -n {q} {} | bat --language=plain --style=plain --paging=never"
 }
-export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 eval "$(gh copilot alias -- zsh)"
+
+source /Users/marlon/.phpbrew/bashrc
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/marlon/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+set -o vi

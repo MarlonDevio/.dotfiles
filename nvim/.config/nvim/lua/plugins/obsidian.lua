@@ -11,7 +11,7 @@ local obsidian = {
     },
     event = {
       "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
-      "BufNewFile " .. "/Users/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
+      "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
     },
     cmd = {
       "ObsidianOpen",
@@ -31,6 +31,7 @@ local obsidian = {
     },
 
     opts = {
+
       workspaces = {
         {
           name = "MainSyncVault",
@@ -148,7 +149,7 @@ local obsidian = {
       vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "obsidian all occurrences of given tag" })
       vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "obsidian search for or create notes" })
       vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinkNew<CR>", { desc = "obsidian create new note and link it" })
-      vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBackLinks<CR>", { desc = "obsidian find all backlinks " })
+      vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "obsidian find all backlinks " })
     end,
   },
 }

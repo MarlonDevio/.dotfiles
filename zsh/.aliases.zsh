@@ -1,3 +1,5 @@
+alias install_composer="/Users/marlon/bin/install_composer.sh"
+alias create_file_from_many="~/bin/file_filter_with_names_at_top.py"
 alias mc='~/bin/stow-dir-maker.sh'
 alias dcb='docker-compose build'
 alias dcd='docker-compose down'
@@ -18,6 +20,7 @@ alias setwallpaper='osascript -e '\''tell application "Finder" to set desktop pi
 #utils
 alias extract_font_sizes='/Users/marlon/Scripts/reg_extractor.py'
 
+alias file_concat='~/bin/file_concatenator_with_file_title.sh'
 # config alias
 alias zconf="nvim ~/.zshrc"
 alias zsrc="source ~/.zshrc"

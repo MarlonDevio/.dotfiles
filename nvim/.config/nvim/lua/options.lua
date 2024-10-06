@@ -20,3 +20,18 @@ for _, plugin in pairs(enable_providers) do
   vim.g["loaded_" .. plugin] = nil
   vim.cmd("runtime " .. plugin)
 end
+-- Highlight group for yanked text
+vim.api.nvim_set_hl(0, "YankHighlight", {
+  bg = "#FFFF00", -- Yellow background
+  fg = "#000000", -- Black text (optional)
+})
+
+-- Autocommand to trigger on TextYankPost
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank {
+      higroup = "YankHighlight", -- Highlight group name
+      timeout = 100, -- Duration in milliseconds
+    }
+  end,
+})

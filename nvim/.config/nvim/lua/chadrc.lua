@@ -5,12 +5,12 @@
 local M = {}
 
 M.base46 = {
-  theme = "gatekeeper",
-  transparency = true,
-  -- hl_override = {
-  Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  theme = "tokyonight",
+  transparency = false,
+  hl_override = {
+    ["@comment"] = { italic = true },
+    ["@keyword"] = { italic = true },
+  },
 }
 
 M.ui = {

@@ -143,13 +143,13 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info $blue $thm_bg"
+		"tmux_session_info $lavender $thm_bg"
 		"hostname $eggplant $thm_bg"
 		#"ifstat 30 255"
 		#"ifstat_sys 30 255"
-		"lan_ip $sky_blue $thm_bg ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
-		"wan_ip $sky_blue $thm_bg"
-		"vcs_branch $thm_gray"
+		"lan_ip $spotify_black $text ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
+		"wan_ip $lavender $thm_bg"
+		"vcs_branch $sapphire $thm_bg"
 		#"air ${TMUX_POWERLINE_SEG_AIR_COLOR} $thm_bg"
 		#"vcs_compare 60 255"
 		#"vcs_staged 64 255"
@@ -168,14 +168,14 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		#"now_playing $spotify_green $spotify_black"
 		#"cpu 240 136"
 		#"load 237 167"
-		"tmux_mem_cpu_load $red"
-		"battery $blue $thm_bg"
+		"tmux_mem_cpu_load $spotify_black $sapphire"
+		# "battery $blue $thm_bg"
 		#"weather 37 255"
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}"
 		#"xkb_layout 125 117"
-		"date_day $teal $thm_bg"
-		"date $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
-		"time $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		# "date_day $teal $thm_bg"
+		# "date $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		# "time $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 	)
 fi

@@ -62,7 +62,7 @@ local project = {
     -- Keybindings for Project and Telescope
     vim.keymap.set("n", "<space>l", function()
       require("telescope").extensions.projects.projects {}
-    end)
+    end, { desc = "Project show projects" })
 
     return p
   end,
