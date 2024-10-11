@@ -25,6 +25,7 @@ local treesitter = {
       "tsx",
       "c",
       "cmake",
+      "regex",
       -- "cpp",
       "fish",
       -- "go",

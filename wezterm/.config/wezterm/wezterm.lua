@@ -14,7 +14,7 @@ config = {
 
 	-- font = wezterm.font("JetBrainsMonoNL Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" }),
 
-	font_size = 18,
+	font_size = 20,
 	color_scheme = "Sakura",
 	default_cursor_style = "BlinkingBar",
 
@@ -59,7 +59,8 @@ config = {
 			source = {
 				-- File = "/Users/marlon/Pictures/wallpaper/1-10881_mac-os-mojave-wallpaper-4k.jpg",
 				-- File = "/Users/marlon/Pictures/wallpaper/cube-blocks.jpg",
-				File = "/Users/marlon/Pictures/wallpaper/abstract-purple.jpg",
+				File = "/Users/marlon/Pictures/wallpaper/broken-glass-pieces-red-4k-at.jpg",
+				-- File = "/Users/marlon/Pictures/wallpaper/abstract-purple.jpg",
 				-- File = "/Users/marlon/Pictures/wallpaper/metallic-pink.png",
 				-- File = "/Users/marlon/Pictures/wallpaper/broken-glass-pieces-red-4k-at.jpg",
 				-- File = "/Users/marlon/Pictures/wallpaper/glass-blurred.jpg",

@@ -141,9 +141,6 @@ local obsidian = {
           return "<cmd>ObsidianFollowLink<CR>"
         end
       end, { desc = "obsidian follow link", noremap = false, expr = true })
-      vim.keymap.set("n", "<leader>gf", function()
-        require("obsidian").util.gf_passthrough()
-      end, { desc = "obsidian passthrough" })
       vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "obsidian new note" })
       vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "obsidian quick switch" })
       vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "obsidian all occurrences of given tag" })

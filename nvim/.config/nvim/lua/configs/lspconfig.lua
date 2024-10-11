@@ -4,7 +4,6 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 -- load defaults i.e lua_lsp
 
 local lspconfig = require "lspconfig"
-
 -- list of all servers configured
 lspconfig.servers = {
   "lua_ls",
@@ -20,6 +19,7 @@ lspconfig.servers = {
   "rust_analyzer",
   "clangd",
   "bashls",
+  "texlab",
 }
 
 local default_servers = {
@@ -34,6 +34,7 @@ local default_servers = {
   "emmet_ls",
   "tailwindcss",
   "rust_analyzer",
+  "texlab",
 }
 
 -- lsps with default config

@@ -5,8 +5,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "tokyonight",
-  transparency = false,
+  theme = "bearded-arc",
+  -- transparency = false,
   hl_override = {
     ["@comment"] = { italic = true },
     ["@keyword"] = { italic = true },
