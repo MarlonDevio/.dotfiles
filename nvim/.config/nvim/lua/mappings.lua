@@ -29,10 +29,6 @@ map("n", "<leader>cli", function()
   require("nvchad.term").new { pos = "sp" }
 end, { desc = "terminal new horizontal term" })
 
-map("n", "<leader>tv", function()
-  require("nvchad.term").new { pos = "vsp" }
-end, { desc = "terminal new vertical window" })
-
 -- toggleable
 map({ "n", "t" }, "<C-t>", function()
   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }

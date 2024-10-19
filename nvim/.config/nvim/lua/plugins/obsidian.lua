@@ -11,7 +11,9 @@ local obsidian = {
     },
     event = {
       "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
+      "BufReadPre " .. "/Users/marlon/vaults/**/*.md",
       "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
+      "BufNewFile " .. "/Users/marlon/vaults/**/*.md",
     },
     cmd = {
       "ObsidianOpen",
@@ -34,16 +36,16 @@ local obsidian = {
 
       workspaces = {
         {
-          name = "MainSyncVault",
-          path = "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault",
+          name = "Life",
+          path = "/Users/marlon/vaults",
           overrides = {
-            notes_subdir = "1-rough-notes",
+            notes_subdir = "Life/Braindump",
           },
         },
       },
 
-      notes_subdir = "1-rough-notes",
-      new_notes_location = "1-rough-notes",
+      notes_subdir = "Braindump",
+      new_notes_location = "Braindump",
 
       completion = { nvim_cmp = true, min_chars = 2 },
 

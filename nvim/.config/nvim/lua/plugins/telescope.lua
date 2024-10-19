@@ -67,7 +67,7 @@ local telescope = {
             shorten_path = true,
             path_display = { "tail" },
             search_dirs = {
-              "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/1-rough-notes",
+              "/Users/marlon/vaults/Life/",
             },
           }
         end, { desc = "Telescope search obsidian files" }),
@@ -77,7 +77,7 @@ local telescope = {
             shorten_path = true,
             path_display = { "tail" },
             search_dirs = {
-              "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/",
+              "/Users/marlon/vaults/Life/",
             },
           }
         end, { desc = "Telescope Live Grep obsidian files" }),

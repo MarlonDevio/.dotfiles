@@ -8,6 +8,7 @@ lint.linters_by_ft = {
   typescript = { "eslint_d" },
   typescriptreact = { "eslint_d" },
   bash = { "shellcheck" },
+  latex = { "vale" },
 }
 
 lint.linters.luacheck.args = {

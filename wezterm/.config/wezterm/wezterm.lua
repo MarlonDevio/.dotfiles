@@ -5,6 +5,32 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config = {
+	keys = {
+		-- Ctrl+Shift+Left Arrow
+		{
+			key = "LeftArrow",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.SendString("\x1b[1;6D"),
+		},
+		-- Ctrl+Shift+Right Arrow
+		{
+			key = "RightArrow",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.SendString("\x1b[1;6C"),
+		},
+		-- Ctrl+Shift+Up Arrow
+		{
+			key = "UpArrow",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.SendString("\x1b[1;6A"),
+		},
+		-- Ctrl+Shift+Down Arrow
+		{
+			key = "DownArrow",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.SendString("\x1b[1;6B"),
+		},
+	},
 	automatically_reload_config = true,
 	enable_tab_bar = false,
 	window_decorations = "RESIZE",
@@ -14,7 +40,7 @@ config = {
 
 	-- font = wezterm.font("JetBrainsMonoNL Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" }),
 
-	font_size = 20,
+	font_size = 19,
 	color_scheme = "Sakura",
 	default_cursor_style = "BlinkingBar",
 

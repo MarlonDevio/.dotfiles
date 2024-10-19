@@ -119,8 +119,8 @@ lspconfig.intelephense.setup {
       filetypes = { "php", "blade", "php_only" },
       files = {
         associations = { "*.php", "*.blade.php" },
-        maxsize = 5000000,
-        excluse = {
+        maxSize = 5000000,
+        exclude = {
           "**/node_modules/**",
         },
       },

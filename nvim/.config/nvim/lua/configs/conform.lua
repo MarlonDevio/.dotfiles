@@ -13,6 +13,7 @@ local options = {
     bash = { "beautysh" },
     php = { "php_cs_fixer", "phpcbf" },
     blade = { "blade-formatter", "rustywind" },
+    latex = { "latexindent" },
   },
 
   formatters = {

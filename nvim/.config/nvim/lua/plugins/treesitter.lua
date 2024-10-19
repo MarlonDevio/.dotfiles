@@ -13,6 +13,7 @@ local treesitter = {
       },
     },
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "chrisgrieser/nvim-various-textobjs",
   },
   opts = {
     ensure_installed = {
@@ -45,6 +46,7 @@ local treesitter = {
       "vimdoc",
       "yaml",
       "c_sharp",
+      "latex",
     },
     auto_install = true,
     highlight = {

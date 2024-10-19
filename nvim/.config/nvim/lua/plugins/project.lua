@@ -8,7 +8,7 @@ local project = {
   },
 
   keys = {
-    { "<space>l" },
+    { "<space>lr" },
     { "<C-n>" },
   },
 
@@ -60,7 +60,7 @@ local project = {
     -- Load project extension for Telescope
     require("telescope").load_extension "projects"
     -- Keybindings for Project and Telescope
-    vim.keymap.set("n", "<space>l", function()
+    vim.keymap.set("n", "<space>lr", function()
       require("telescope").extensions.projects.projects {}
     end, { desc = "Project show projects" })
 

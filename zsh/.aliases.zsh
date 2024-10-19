@@ -6,6 +6,8 @@ alias dcd='docker-compose down'
 alias dcu='docker-compose up'
 alias grep='grep --color=auto'
 alias gtobs='cd /Users/marlon/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/MainSyncVault'
+alias gtolife='cd /Users/marlon/vaults/Life/'
+alias mrshoaff='nvim /Users/marlon/vaults/Life/Areas/MrShoaff.md'
 alias dashdocs='cd "/Users/marlon/Library/Application Support/Dash/"'
 alias t9='cd /Volumes/T9'
 alias gitcommit='/Users/marlon/Scripts/gitcommit.sh'
@@ -94,3 +96,4 @@ fdcopy() {
 alias kconf='nvim "/Users/marlon/.config/kitty/kitty.conf"'
 
 alias iservices='~/bin/industria_services.sh'
+alias tdf='~/bin/tdf'
