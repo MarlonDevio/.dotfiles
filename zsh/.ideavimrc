@@ -30,7 +30,7 @@ nmap <S-Tab> <Action>(NextTab)
 nmap <C-v> <Action>(HideActiveWindow)
 nmap <leader>car <Action>(RenameElement)
 nmap<Action>
-nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+nmap <leader>cl <Action>(ActivateTerminalToolWindow)
 " Press `f` to activate AceJump
 map f <Action>(AceAction)
 " Press `F` to activate Target Mode
@@ -142,3 +142,5 @@ nmap <leader>gy <Action>(GotoBookmarkY)
 nmap <leader>gz <Action>(GotoBookmarkZ)
 
 set ideavimsupport="dialog","singleline"
+
+nmap <C-n> <Action>(ActivateProjectToolWindow)

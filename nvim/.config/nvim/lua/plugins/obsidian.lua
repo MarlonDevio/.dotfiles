@@ -10,10 +10,14 @@ local obsidian = {
       "nvim-treesitter/nvim-treesitter",
     },
     event = {
+
+      "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/**/*.md",
       "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
       "BufReadPre " .. "/Users/marlon/vaults/**/*.md",
       "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
       "BufNewFile " .. "/Users/marlon/vaults/**/*.md",
+      "BufNewFile " .. "/Users/marlon/Library/CloudStorage/OneDrive-Persoonlijk/drivenizer/**/*.md",
+      "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/**/*.md",
     },
     cmd = {
       "ObsidianOpen",
@@ -36,16 +40,16 @@ local obsidian = {
 
       workspaces = {
         {
-          name = "Life",
-          path = "/Users/marlon/vaults",
+          name = "drivenizer",
+          path = "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/secondbrain/",
           overrides = {
-            notes_subdir = "Life/Braindump",
+            notes_subdir = "00-Braindump",
           },
         },
       },
 
-      notes_subdir = "Braindump",
-      new_notes_location = "Braindump",
+      notes_subdir = "00-Braindump",
+      new_notes_location = "00-Braindump",
 
       completion = { nvim_cmp = true, min_chars = 2 },
 
@@ -55,11 +59,19 @@ local obsidian = {
 
       note_frontmatter_func = function(note)
         -- Add the title of the note as an alias.
-        if note.title then
+        if note.title and not vim.tbl_contains(note.aliases, note.title) then
           note:add_alias(note.title)
         end
 
-        local out = { date = os.date "%Y-%m-%d %H:%M", id = note.id, aliases = note.aliases, tags = note.tags }
+        local out = {
+          date = os.date "%Y-%m-%d %H:%M",
+          id = note.id,
+          aliases = note.aliases,
+          tags = note.tags,
+          area = note.area or "[[]]",
+          project = note.project or "[[]]",
+          status = note.status or "",
+        }
 
         -- `note.metadata` contains any manually added fields in the frontmatter.
         -- So here we just make sure those fields are kept in the frontmatter.

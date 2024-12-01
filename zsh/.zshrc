@@ -212,3 +212,4 @@ export PATH="/Users/marlon/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 set -o vi
+export COLORTERM=truecolor

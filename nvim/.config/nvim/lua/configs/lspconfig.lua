@@ -20,6 +20,7 @@ lspconfig.servers = {
   "clangd",
   "bashls",
   "texlab",
+  "eslint",
 }
 
 local default_servers = {
@@ -35,6 +36,7 @@ local default_servers = {
   "tailwindcss",
   "rust_analyzer",
   "texlab",
+  "eslint",
 }
 
 -- lsps with default config

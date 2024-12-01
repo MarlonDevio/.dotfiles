@@ -1,4 +1,3 @@
-# Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
 # It's not necessary to copy all keys to your config.
@@ -12,8 +11,11 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
-
+after-startup-command = ['exec-and-forget sketchybar borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'] 
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 # Start AeroSpace at login
 start-at-login = true 
 
@@ -44,31 +46,28 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [workspace-to-monitor-force-assignment]
-"A" = '^MSI.+$'
-"N" = '^MSI.+$'
-"B" = '^GS.+$'
-"C" = '^GS.+$'
-"D" = '^LG.+$'
-"T" = '^LG.+$'
+"S" = '^LG.+$'
+"D" = '^MSI.+$'
+"F" = '^GS.+$'
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefoxdeveloperedition'
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run = "move-node-to-workspace A"
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = "move-node-to-workspace A"
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'com.pieces.x'
-run = "move-node-to-workspace A"
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
@@ -76,36 +75,47 @@ run = "move-node-to-workspace T"
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
-run = "move-node-to-workspace T"
+run = "move-node-to-workspace S"
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = "move-node-to-workspace A"
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace T"
+run = "move-node-to-workspace S"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = "move-node-to-workspace D"
+run = "move-node-to-workspace S"
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.app.fmgjjmmmlfnkbppncabfkddbjimcfncm '
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'com.busymac.busycal-setapp'
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace F"
 
+[[on-window-detected]]
+if.app-id = 'com.philipyoungg.session-setapp'
+run = "move-node-to-workspace D"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = "move-node-to-workspace F"
+
+[[on-window-detected]]
+if.app-id = 'com.todoist.mac.Todoist'
+run = "move-node-to-workspace D"
 
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -116,11 +126,11 @@ run = "move-node-to-workspace C"
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 10
-inner.vertical =  2
+inner.horizontal = 10 
+inner.vertical =  10
 outer.left =       10
 outer.bottom =     10
-outer.top =        0
+outer.top =        40
 outer.right =      10
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -152,16 +162,16 @@ alt-comma = 'layout accordion horizontal vertical'
 
 # focus monitor
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+cmd-h = 'focus left'
+cmd-j = 'focus down'
+cmd-k = 'focus up'
+cmd-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+cmd-shift-h = 'move left'
+cmd-shift-j = 'move down'
+cmd-shift-k = 'move up'
+cmd-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
@@ -169,25 +179,17 @@ alt-shift-equal = 'resize smart +50'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 
 # Artificial intelligence
-alt-a = 'workspace A'
+cmd-s = 'workspace S'
 # browsers
-alt-b = 'workspace B'
+cmd-d = 'workspace D'
 # Communication
-alt-c = 'workspace C'
+cmd-f = 'workspace F'
 # Development
-alt-d = 'workspace D'
-# Terminal
-alt-t = 'workspace T'
-# notes 
-alt-n = 'workspace N'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-n = 'move-node-to-workspace N'
+cmd-shift-s = 'move-node-to-workspace S'
+cmd-shift-d = 'move-node-to-workspace D'
+cmd-shift-f = 'move-node-to-workspace F'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'

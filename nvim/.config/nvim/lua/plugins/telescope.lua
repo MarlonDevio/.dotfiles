@@ -91,6 +91,15 @@ local telescope = {
           }
         end, { desc = "telescope search home directory" }),
 
+        map("n", "<leader><leader>", function()
+          builtin.oldfiles {
+            prompt_title = "Find recent files",
+            shorten_path = true,
+            path_display = { "absolute" },
+            search_dirs = { "/" },
+          }
+        end, { desc = "telescope search old files" }),
+
         map("n", "<leader>sn", function()
           builtin.find_files { cwd = vim.fn.stdpath "config" }
         end, { desc = "telescope search neovim config files" }),
@@ -122,6 +131,7 @@ local telescope = {
           override_file_sorter = true,
           case_mode = "smart_case",
         },
+        dash = {},
       }
 
       return conf
@@ -131,6 +141,7 @@ local telescope = {
       require("telescope").setup(opts)
       require("telescope").load_extension "fzf"
       require("telescope").load_extension "file_browser"
+      require("telescope").load_extension "dash"
     end,
   },
   {

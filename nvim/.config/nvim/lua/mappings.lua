@@ -4,6 +4,12 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("n", "<leader>dq", function()
+  require("telescope").extensions.dash.search {
+    bang = false,
+    initial_text = "",
+  }
+end, { desc = "Dash Search with Telescope" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
@@ -25,8 +31,8 @@ map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", { desc = "Tmux navigate prev
 --
 
 -- new terminals
-map("n", "<leader>cli", function()
-  require("nvchad.term").new { pos = "sp" }
+map("n", "<leader>cl", function()
+  require("nvchad.term").toggle { pos = "sp" }
 end, { desc = "terminal new horizontal term" })
 
 -- toggleable
@@ -41,8 +47,6 @@ end, { desc = "terminal new horizontal term" })
 map({ "n", "t" }, "<C-f>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
-
-map("n", "<space>cl", "<cmd>pwd<CR>")
 
 -- Alternatively, using lua API
 vim.keymap.set("n", "<space>fb", function()

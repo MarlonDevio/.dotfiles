@@ -21,7 +21,7 @@ return {
       },
     }
     -- Set custom highlights for LspCodeLens
-    vim.api.nvim_set_hl(0, "LspLens", { fg = "#39301e", italic = true })
+    vim.api.nvim_set_hl(0, "LspLens", { fg = "#12989e", italic = true })
     vim.api.nvim_set_hl(0, "LspCodeLensSeparator", { fg = "#ffaa33", italic = true })
   end,
 }

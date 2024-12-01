@@ -1,7 +1,19 @@
-vim.cmd [[highlight Headline1 guibg=#1e2718]]
-vim.cmd [[highlight Headline2 guibg=#21262d]]
-vim.cmd [[highlight CodeBlock guibg=#1c1c1c]]
-vim.cmd [[highlight Dash guibg=#D19A66 gui=bold]]
+-- vim.cmd [[highlight Headline1 guibg=#101710 guifg=#a3be8c]] -- green
+-- vim.cmd [[highlight Headline2 guibg=#151a1e guifg=#81a1c1]] -- blue
+-- vim.cmd [[highlight Headline3 guibg=#1c151e guifg=#b48ead]] -- purple
+-- vim.cmd [[highlight Headline4 guibg=#201a18 guifg=#d08770]] -- orange
+-- vim.cmd [[highlight Headline5 guibg=#211e14 guifg=#ebcb8b]] -- yellow
+-- vim.cmd [[highlight Headline6 guibg=#17212b guifg=#bf616a]] -- red
+-- vim.cmd [[highlight CodeBlock guibg=#1c1c1c]]
+-- vim.cmd [[highlight Dash guibg=#D19A66 gui=bold]]
+vim.cmd [[highlight Headline1 guifg=#004d00 gui=bold]] -- dark green text
+vim.cmd [[highlight Headline2 guifg=#003366 gui=bold]] -- dark blue text
+vim.cmd [[highlight Headline3 guifg=#4b0082 gui=bold]] -- indigo text
+vim.cmd [[highlight Headline4 guifg=#8b4513 gui=bold]] -- saddle brown text
+vim.cmd [[highlight Headline5 guifg=#806000 gui=bold]] -- dark goldenrod text
+vim.cmd [[highlight Headline6 guifg=#800000 gui=bold]] -- maroon text
+vim.cmd [[highlight CodeBlock guibg=#f5f5f5 guifg=#000000]] -- very light gray background, black text
+vim.cmd [[highlight Dash guifg=#555555 gui=bold]] -- medium gray text with bold
 local headlines = {
   {
     "lukas-reineke/headlines.nvim",
@@ -33,7 +45,14 @@ local headlines = {
                 (block_quote (block_continuation) @quote)
             ]]
           ),
-          headline_highlights = { "Headline" },
+          headline_highlights = {
+            "Headline1",
+            "Headline2",
+            "Headline3",
+            "Headline4",
+            "Headline5",
+            "Headline6",
+          },
           bullet_highlights = {
             "@text.title.1.marker.markdown",
             "@text.title.2.marker.markdown",
