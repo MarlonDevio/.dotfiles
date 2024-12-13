@@ -5,8 +5,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "monekai",
-  transparency = true,
+  theme = "ashes",
+  transparency = false,
   hl_override = {
     ["@comment"] = { italic = true },
     ["@keyword"] = { italic = true, bold = true },

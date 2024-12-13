@@ -80,6 +80,9 @@ local omnisharp_bin = "/Users/marlon/bin/omnisharp-roselyn/OmniSharp"
 local pid = vim.fn.getpid()
 local util = require "lspconfig.util"
 lspconfig.omnisharp.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
   cmd = {
     omnisharp_bin,
     "--languageserver",
@@ -102,12 +105,22 @@ lspconfig.omnisharp.setup {
     Sdk = {
       IncludePrereleases = true,
     },
+    diagnostics = {
+      enable = true,
+      hint = true,
+      warning = true,
+      virtualText = false,
+      information = true,
+      severity = {
+        error = "Error",
+        warning = "Warning",
+        hint = "Hint",
+        information = "Information",
+      },
+    },
   },
   filetypes = { "cs", "csx", "xaml" },
   root_dir = util.root_pattern("*.sln", "*.csproj", "omnisharp.json", "function.json"),
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
 }
 
 -- In your lspconfig.lua file

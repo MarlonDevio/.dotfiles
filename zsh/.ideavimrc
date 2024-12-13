@@ -26,10 +26,10 @@ nmap <C-o> <Action>(Forward)
 
 nmap <Tab> <Action>(NextTab)
 nmap <S-Tab> <Action>(NextTab)
-
+nmap <leader>sk <Action>(FindAction)
 nmap <C-v> <Action>(HideActiveWindow)
-nmap <leader>car <Action>(RenameElement)
-nmap<Action>
+nmap <leader>re <Action>(RenameElement)
+nmap <leader>ca <Action>(OpenContextMenu)
 nmap <leader>cl <Action>(ActivateTerminalToolWindow)
 " Press `f` to activate AceJump
 map f <Action>(AceAction)
@@ -46,11 +46,13 @@ sethandler <C-L> a:vim
 sethandler <C-J> a:vim
 sethandler <C-K> a:vim
 
+nmap <leader>ccq <Action>(ActivateGitHubCopilotChatToolWindow)
 nmap <leader>sn <Action>(Settings)
 nmap <leader>l <Action>(IdeaVim.ReloadVimRc.reload)
-nmap <S-Tab> <Action>(PreviousTab)
 nmap <leader>sm <Action>(ShowBookmarks)
 nmap <leader>su <Action>(FindUsages)
+map <leader><leader> <Action>(RecentFiles)
+map <C-x> <Action>(Terminal.SwitchFocusToEditor)
 " Map Ctrl + h/l/j/k to move between splits in normal mod
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l

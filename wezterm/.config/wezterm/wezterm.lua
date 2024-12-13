@@ -39,7 +39,7 @@ config = {
 	enable_tab_bar = false,
 	window_decorations = "RESIZE",
 	window_close_confirmation = "NeverPrompt",
-	window_background_opacity = 0.90,
+	window_background_opacity = 0.50,
 	macos_window_background_blur = 67,
 
 	-- font = wezterm.font("JetBrainsMonoNL Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" }),
@@ -99,7 +99,9 @@ config = {
 				-- File = "/Users/marlon/Pictures/wallpaper/metallic-pink.png",
 				-- File = "/Users/marlon/Pictures/wallpaper/broken-glass-pieces-red-4k-at.jpg",
 				-- File = "/Users/marlon/Pictures/wallpaper/glass-blurred.jpg",
-				File = "/Users/marlon/Pictures/wallpaper/blurred-colours.jpg",
+				-- File = "/Users/marlon/Pictures/wallpaper/blurred-colours.jpg",
+				-- File = "/Users/marlon/Downloads/arch_fill.png",
+				File = "/Users/marlon/Downloads/arch_outline.png",
 			},
 			hsb = {
 				hue = 1.0,
@@ -108,7 +110,7 @@ config = {
 			},
 			width = "100%",
 			height = "100%",
-			opacity = 0.30,
+			opacity = 0.02,
 		},
 		{
 			source = {
@@ -116,29 +118,29 @@ config = {
 				-- Color = "#282c35",
 			},
 			hsb = {
-				hue = 1.0,
+				hue = 0.90,
 				saturation = 1,
-				brightness = 0.90,
+				brightness = 0.99,
 			},
 			width = "100%",
 			height = "100%",
 			-- opacity = 0.1,
-			opacity = 0.35,
+			opacity = 0.55,
 		},
-		{
-			source = {
-				Color = "#282c35",
-			},
-			hsb = {
-				hue = 1.0,
-				saturation = 1,
-				brightness = 0.90,
-			},
-			width = "100%",
-			height = "100%",
-			-- opacity = 0.1,
-			opacity = 0.85,
-		},
+		-- k
+		-- 	source = {
+		-- 		Color = "#282c35",
+		-- 	},
+		-- 	hsb = {
+		-- 		hue = 1.0,
+		-- 		saturation = 1,
+		-- 		brightness = 0.90,
+		-- 	},
+		-- 	width = "100%",
+		-- 	height = "100%",
+		-- 	-- opacity = 0.1,
+		-- 	opacity = 0.25,
+		-- },
 	},
 	-- window_padding = {
 	-- 	left = 0,

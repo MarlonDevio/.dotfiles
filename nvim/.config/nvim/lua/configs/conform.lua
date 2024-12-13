@@ -21,7 +21,7 @@ local options = {
       command = "/Users/marlon/.local/share/nvim/mason/bin/prettier",
       args = function()
         -- Allow Prettier to find the correct config file automatically
-        return { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--config-precedence", "prefer-file" }
+        return { "--stdin-filepath", vim.api.nvim_buf_get_name(0), "--config-precedence", "prefer-file", "--stdin" }
       end,
       stdin = true,
     },

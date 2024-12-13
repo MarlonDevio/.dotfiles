@@ -1,3 +1,5 @@
+alias gpt="open -n /Applications/ChatGPT.app/Contents/MacOS/ChatGPT"
+alias cwr='~/bin/weekly-review-script.py'
 alias install_composer="/Users/marlon/bin/install_composer.sh"
 alias sth="~/bin/renamer.sh"
 alias create_file_from_many="~/bin/file_filter_with_names_at_top.py"

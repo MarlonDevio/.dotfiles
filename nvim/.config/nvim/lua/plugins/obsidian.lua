@@ -11,13 +11,8 @@ local obsidian = {
     },
     event = {
 
-      "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/**/*.md",
-      "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
-      "BufReadPre " .. "/Users/marlon/vaults/**/*.md",
-      "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/MainSyncVault/**/*.md",
-      "BufNewFile " .. "/Users/marlon/vaults/**/*.md",
-      "BufNewFile " .. "/Users/marlon/Library/CloudStorage/OneDrive-Persoonlijk/drivenizer/**/*.md",
-      "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/**/*.md",
+      "BufReadPre " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/secondbrain/**/*.md",
+      "BufNewFile " .. "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/secondbrain/**/*.md",
     },
     cmd = {
       "ObsidianOpen",
@@ -34,6 +29,8 @@ local obsidian = {
       "ObsidianExtractNote",
       "ObsidianLinkNew",
       "ObsidianTags",
+      "ObsidianTemplate",
+      "ObsidianNewFromTemplate",
     },
 
     opts = {
@@ -47,13 +44,17 @@ local obsidian = {
           },
         },
       },
+      templates = {
+        folder = "/Users/marlon/Library/Mobile Documents/iCloud~md~obsidian/Documents/secondbrain/_templates/",
+      },
 
       notes_subdir = "00-Braindump",
       new_notes_location = "00-Braindump",
 
       completion = { nvim_cmp = true, min_chars = 2 },
+      log_level = vim.log.levels.INFO,
 
-      disable_frontmatter = false,
+      disable_frontmatter = true,
 
       preferred_link_style = "wiki",
 
@@ -68,8 +69,8 @@ local obsidian = {
           id = note.id,
           aliases = note.aliases,
           tags = note.tags,
-          area = note.area or "[[]]",
-          project = note.project or "[[]]",
+          area = note.area or "[]",
+          project = note.project or "",
           status = note.status or "",
         }
 
@@ -96,7 +97,7 @@ local obsidian = {
       note_path_func = function(spec)
         -- This is equivalent to the default behavior.
         local path = spec.dir / tostring(spec.title)
-        return path:with_suffix ".md"
+        return tostring(path:with_suffix ".md")
       end,
 
       -- Optional, set to true if you use the Obsidian Advanced URI plugin.
@@ -149,18 +150,59 @@ local obsidian = {
     -- },
 
     config = function(_, opts)
+      -- Set up the obsidian plugin with your options
       require("obsidian").setup(opts)
+
       vim.keymap.set("n", "<leader>of", function()
         if require("obsidian").util.cursor_on_markdown_link() then
           return "<cmd>ObsidianFollowLink<CR>"
         end
       end, { desc = "obsidian follow link", noremap = false, expr = true })
+      vim.keymap.set("n", "<leader>ofv", function()
+        if require("obsidian").util.cursor_on_markdown_link() then
+          return "<cmd>ObsidianFollowLink vsplit<CR>"
+        end
+      end, { desc = "obsidian follow link vsplit", noremap = false, expr = true })
+      vim.keymap.set("n", "<leader>ofh", function()
+        if require("obsidian").util.cursor_on_markdown_link() then
+          return "<cmd>ObsidianFollowLink hsplit<CR>"
+        end
+      end, { desc = "obsidian follow link hsplit", noremap = false, expr = true })
       vim.keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "obsidian new note" })
       vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "obsidian quick switch" })
       vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>", { desc = "obsidian all occurrences of given tag" })
       vim.keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "obsidian search for or create notes" })
-      vim.keymap.set("n", "<leader>ol", "<cmd>ObsidianLinkNew<CR>", { desc = "obsidian create new note and link it" })
+      vim.keymap.set(
+        "n",
+        "<leader>ol",
+        "<cmd>ObsidianLinkNew<CR>",
+        { desc = "obsidian creates a new note and links the selected text to it" }
+      )
       vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "obsidian find all backlinks " })
+      vim.keymap.set(
+        "n",
+        "<leader>osl",
+        "<cmd>ObsidianLinks<CR>",
+        { desc = "obsidian show all links in the current buffer" }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>oxn",
+        "<cmd>ObsidianExtractNote<CR>",
+        { desc = "obsidian extract selected text from current note and creates a new note from it." }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>oit",
+        "<cmd>ObsidianTemplate<CR>",
+        { desc = "obsidian Insert a template from the templates folder." }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>ont",
+        "<cmd>ObsidianNewFromTemplate<CR>",
+        { desc = "obsidian Create new from template" }
+      )
     end,
   },
 }

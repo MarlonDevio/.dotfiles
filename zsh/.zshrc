@@ -8,6 +8,7 @@
 # Source Oh My Zsh - THIS LINE IS ADDED
 ZSH="$HOME/.oh-my-zsh" # Make sure this points to your Oh My Zsh installation
 source $ZSH/oh-my-zsh.sh
+source ~/.api_keys
 
 # Plugins setup - THIS LINE IS ADDED
 plugins=(git zsh-autosuggestions web-search zsh-syntax-highlighting zsh-interactive-cd)
