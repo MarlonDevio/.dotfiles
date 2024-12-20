@@ -85,10 +85,6 @@ nmap <leader>he <action>(HarpoonerOpenFile2)
 nmap <leader>hr <action>(HarpoonerOpenFile3)
 nmap <leader>hm <action>(HarpoonerQuickMenu)
 
-nmap <Leader>ff <action>(com.mituuz.fuzzier.Fuzzier)
-nmap <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
-nmap <Leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
-
 
 " Manually map each letter A-Z for the ToggleBookmarkation
 nmap <leader>ma <Action>(ToggleBookmarkA)

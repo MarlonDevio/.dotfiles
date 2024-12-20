@@ -10,6 +10,8 @@ alias dcu='docker-compose up'
 alias grep='grep --color=auto'
 alias gtobs='cd /Users/marlon/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/MainSyncVault'
 alias secondbrain='/Users/marlon/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/secondbrain'
+alias gen_wiki='~/bin/obsidian-linker/obsidian-linker.py'
+
 alias daily_note='~/Scripts/open_daily_note.sh'
 alias mrshoaff='nvim /Users/marlon/vaults/Life/Areas/MrShoaff.md'
 alias dashdocs='cd "/Users/marlon/Library/Application Support/Dash/"'
