@@ -1,0 +1,144 @@
+set scrolloff=10
+set history=1000
+
+let mapleader = " "
+set trackactionids
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamedplus
+set notimeout
+set which-key
+let g:WhichKeyDesc_display = "<leader>d Display"
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+set ideajoin
+set ideamarks
+
+nmap <leader>nh :noh<CR>
+
+nmap <C-i> <Action>(Back)
+nmap <C-o> <Action>(Forward)
+
+nmap <Tab> <Action>(NextTab)
+nmap <S-Tab> <Action>(NextTab)
+nmap <leader>sk <Action>(FindAction)
+nmap <C-v> <Action>(HideActiveWindow)
+nmap <leader>re <Action>(RenameElement)
+nmap <leader>ca <Action>(OpenContextMenu)
+nmap <leader>cl <Action>(ActivateTerminalToolWindow)
+" Press `f` to activate AceJump
+map f <Action>(AceAction)
+" Press `F` to activate Target Mode
+map F <Action>(AceTargetAction)
+" Press `g` to activate Line Mode
+set surround
+" Set <space> as the leader key
+" See `:help mapleader`
+" NTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+" Use Vim handler in normal mode and IDE handler in insert and visual modes
+sethandler <C-H> a:vim
+sethandler <C-L> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+
+nmap <leader>ccq <Action>(ActivateGitHubCopilotChatToolWindow)
+nmap <leader>sn <Action>(Settings)
+nmap <leader>l <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>sm <Action>(ShowBookmarks)
+nmap <leader>su <Action>(FindUsages)
+map <leader><leader> <Action>(RecentFiles)
+map <C-x> <Action>(Terminal.SwitchFocusToEditor)
+" Map Ctrl + h/l/j/k to move between splits in normal mod
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+Plug 'machakann/vim-highlightedyank'
+
+nmap <S-Tab> <Action>(PreviousTab)
+nmap <Tab> <Action>(NextTab)
+
+nmap <leader>sv <Action>(SplitVertically)
+nmap <leader>sh <Action>(SplitHorizontally)
+nmap <leader>x <Action>(CloseContent)
+
+nmap <leader>sf <Action>(GotoFile)
+nmap <leader>s/ <Action>(Find)
+nmap <leader>sg <Action>(FindInPath)
+
+set ideaglobalmode true
+Plug 'preservim/nerdtree'
+set nerdtree
+map <leader>n :NERDTreeToggle<CR>
+map <c-n>n :NERDTreeClose<CR>
+
+" Harpoon
+nmap <leader>ha <action>(HarpoonerAddFile)
+nmap <leader>hq <action>(HarpoonerOpenFile0)
+nmap <leader>hw <action>(HarpoonerOpenFile1)
+nmap <leader>he <action>(HarpoonerOpenFile2)
+nmap <leader>hr <action>(HarpoonerOpenFile3)
+nmap <leader>hm <action>(HarpoonerQuickMenu)
+
+
+" Manually map each letter A-Z for the ToggleBookmarkation
+nmap <leader>ma <Action>(ToggleBookmarkA)
+nmap <leader>mb <Action>(ToggleBookmarkB)
+nmap <leader>mc <Action>(ToggleBookmarkC)
+nmap <leader>md <Action>(ToggleBookmarkD)
+nmap <leader>me <Action>(ToggleBookmarkE)
+nmap <leader>mg <Action>(ToggleBookmarkG)
+nmap <leader>mh <Action>(ToggleBookmarkH)
+nmap <leader>mi <Action>(ToggleBookmarkI)
+nmap <leader>mj <Action>(ToggleBookmarkJ)
+nmap <leader>mk <Action>(ToggleBookmarkK)
+nmap <leader>ml <Action>(ToggleBookmarkL)
+nmap <leader>mm <Action>(ToggleBookmarkM)
+nmap <leader>mn <Action>(ToggleBookmarkN)
+nmap <leader>mo <Action>(ToggleBookmarkO)
+nmap <leader>mp <Action>(ToggleBookmarkP)
+nmap <leader>mq <Action>(ToggleBookmarkQ)
+nmap <leader>mr <Action>(ToggleBookmarkR)
+nmap <leader>ms <Action>(ToggleBookmarkS)
+nmap <leader>mt <Action>(ToggleBookmarkT)
+nmap <leader>mu <Action>(ToggleBookmarkU)
+nmap <leader>mv <Action>(ToggleBookmarkV)
+nmap <leader>mw <Action>(ToggleBookmarkW)
+nmap <leader>mx <Action>(ToggleBookmarkX)
+nmap <leader>my <Action>(ToggleBookmarkY)
+nmap <leader>mz <Action>(ToggleBookmarkZ)
+nmap <leader>ga <Action>(GotoBookmarkA)
+nmap <leader>gb <Action>(GotoBookmarkB)
+nmap <leader>gc <Action>(GotoBookmarkC)
+nmap <leader>gd <Action>(GotoBookmarkD)
+nmap <leader>ge <Action>(GotoBookmarkE)
+nmap <leader>gf <Action>(GotoBookmarkF)
+nmap <leader>gg <Action>(GotoBookmarkG)
+nmap <leader>gh <Action>(GotoBookmarkH)
+nmap <leader>gi <Action>(GotoBookmarkI)
+nmap <leader>gj <Action>(GotoBookmarkJ)
+nmap <leader>gk <Action>(GotoBookmarkK)
+nmap <leader>gl <Action>(GotoBookmarkL)
+nmap <leader>gm <Action>(GotoBookmarkM)
+nmap <leader>gn <Action>(GotoBookmarkN)
+nmap <leader>go <Action>(GotoBookmarkO)
+nmap <leader>gp <Action>(GotoBookmarkP)
+nmap <leader>gq <Action>(GotoBookmarkQ)
+nmap <leader>gr <Action>(GotoBookmarkR)
+nmap <leader>gs <Action>(GotoBookmarkS)
+nmap <leader>gt <Action>(GotoBookmarkT)
+nmap <leader>gu <Action>(GotoBookmarkU)
+nmap <leader>gv <Action>(GotoBookmarkV)
+nmap <leader>gw <Action>(GotoBookmarkW)
+nmap <leader>gx <Action>(GotoBookmarkX)
+nmap <leader>gy <Action>(GotoBookmarkY)
+nmap <leader>gz <Action>(GotoBookmarkZ)
+
+set ideavimsupport="dialog","singleline"
+
+nmap <C-n> <Action>(ActivateProjectToolWindow)
