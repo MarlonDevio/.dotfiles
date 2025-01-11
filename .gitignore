@@ -1,0 +1,315 @@
+###############################################################################
+# OS / Editor / IDE Noise
+###############################################################################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editor / IDE backups / swap
+.*.swp
+.*.swo
+.*.sw[po]
+.#*
+\#*#
+
+###############################################################################
+# Common Logs, Cache, Temp
+###############################################################################
+*.log
+*.log.*
+*.cache
+*.tmp
+*.temp
+*.bak
+*.old
+*.seed
+*.pid
+*.lock
+tmp/
+log/
+logs/
+**/log*
+**/logs*
+**/.cache/
+.cache/
+
+###############################################################################
+# Generic Sensitive Keywords
+###############################################################################
+# Catches filenames that might hold secrets/credentials
+*secret*
+*secrets*
+*token*
+*auth*
+*passwd*
+*password*
+*credentials*
+*gpg*
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+
+# Common key/cert file types
+*.key
+*.pem
+*.p12
+*.pfx
+*.cert
+*.crt
+*.cer
+*.asc
+
+###############################################################################
+# Python
+###############################################################################
+**/venv/
+**/.venv/
+**/.env
+**/.mypy_cache/
+**/.pytest_cache/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+python-version
+.python-version
+Pipfile.lock
+pip-log.txt
+pip-delete-this-directory.txt
+
+###############################################################################
+# Node / npm / Yarn / pnpm
+###############################################################################
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+package-lock.json
+
+###############################################################################
+# Ruby / Rails
+###############################################################################
+.bundle/
+vendor/bundle
+Gemfile.lock
+coverage/
+.rvmrc
+
+###############################################################################
+# PHP / Composer
+###############################################################################
+composer.lock
+composer.phar
+
+###############################################################################
+# Java / Maven / Gradle
+###############################################################################
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+target/
+.gradle/
+**/build/
+
+###############################################################################
+# Swift / Xcode / iOS
+###############################################################################
+build/
+DerivedData/
+Pods/
+*.xcuserstate
+*.xcworkspace/xcshareddata
+xcuserdata/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.moved-aside
+*.hmap
+*.ipa
+
+###############################################################################
+# C / C++ / CMake
+###############################################################################
+*.o
+*.so
+*.dylib
+*.dll
+*.dSYM
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+###############################################################################
+# Archives / Bundles / Packages
+###############################################################################
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+###############################################################################
+# Histories / Shell
+###############################################################################
+.zsh_history
+.bash_history
+.fish_history
+
+###############################################################################
+# Misc Tag / System Files
+###############################################################################
+tags
+TAGS
+.svn
+*.log
+*.log.[0-9]
+.netrwhist
+Session.vim
+*.DS_Store
+
+###############################################################################
+# Dotfiles / Config Directories That Are Typically Sensitive
+###############################################################################
+# Blanket ignore for these top-level hidden dirs you likely don't want to commit
+.ssh/
+.aws/
+.gnupg/
+.docker/
+.m2/
+.kube/
+.gcloud/
+.cache/         # repeated intentionally—some apps spam .cache
+.local/
+.rocks/
+.raycast/
+.karabiner/
+**/db.*
+
+# If you store any “safe” config under these, selectively re-include them below
+# by adding e.g.:  !.config/example-safe-file.conf
+
+###############################################################################
+# Now, selectively ignore known-sensitive app data from your structure
+###############################################################################
+# rTorrent: typically you want to keep the config, but not personal session data
+rTorrent/rtorrent.rc     # if you consider it private, otherwise remove this line
+
+# nchat: from your tree, you have logs/history/profiles that are sensitive
+nchat/.config/nchat/history/
+nchat/.config/nchat/log*
+nchat/.config/nchat/profiles
+nchat/.config/nchat/**/db.sqlite
+
+# wtf: logs
+wtf/.config/wtf/log.txt
+
+# GH CLI: Often has hosts/tokens in config
+gh/.config/gh/hosts
+gh/.config/gh/hosts.yml
+gh/.config/gh/hosts.yaml
+gh/.config/gh/oauth_config.yml
+gh/.config/gh/config.yml
+# If you do keep partial GH config in the repo, explicitly unignore anything safe:
+# !gh/.config/gh/safe-example.yml
+
+###############################################################################
+# Virtual Environments (Python, etc.)
+###############################################################################
+**/venv/*
+**/venv/
+**/.venv/*
+**/.venv/
+pyvenv.cfg
+
+###############################################################################
+# Do not ignore all .config folders, but DO ignore these sensitive subpaths:
+###############################################################################
+# (If you want to keep certain .config files, you'll remove or override lines.)
+# For example, we specifically ignore the fish local config containing variables:
+.config/fish/fish_variables*
+.config/fish/config-local.fish
+
+# Example: if you want to keep your nvim config (which you do):
+# We'll re-include the `nvim/.config/nvim` folder:
+!nvim/.config/nvim/
+!nvim/.config/nvim/**
+
+# If you have other safe .config subfolders, similarly re-include them:
+# !someapp/.config/safe-config/
+# !someapp/.config/safe-config/**
+
+###############################################################################
+# Large or irrelevant subdirs
+###############################################################################
+node_modules/
+bower_components/
+dist/
+public/assets/
+public/uploads/
+
+###############################################################################
+# Extra files from your snippet
+###############################################################################
+**/log*
+**/logs*
+*.sw[po]
+Gemfile.lock
+.vim/bundle/
+.vimrc_sample
+fishd.*
+.atom/
+.atom/packages/save-session
+.atom/compile-cache
+.atom/storage
+.config/karabiner/automatic_backups
+samples
+.bundle
+/vendor/bundle
+.envrc
+.vagrant/
+Dockerfile*
+composer.phar
+**/db.*
+**/PiecesRun.sh
+
+pynvim/
+**/pynvim**
+**/pynvim**/**
+.oh-my-zsh/
+raycast/
+nchat/
+
+
+###############################################################################
+# As a final fallback: IGNORE anything named 'hosts', 'config.yml', etc. 
+# (Remove or comment out if too restrictive)
+###############################################################################
+**/hosts
+**/hosts.*
+**/config.yml
+**/config.yaml
+**/config.toml
+!wezterm/
+.vscode/
+rTorrent
+
