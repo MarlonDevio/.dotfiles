@@ -29,3 +29,28 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end
   end,
 })
+
+-- Keybinding using the module's function
+
+local function search_with_telescope_regex()
+  local input_string = vim.fn.input 'Regex Search > '
+  if input_string == '' then
+    return
+  end
+  require('telescope.builtin').grep_string {
+    search = input_string,
+    use_regex = true, -- Enable regex search
+    word_match = '-w', -- Additional grep arguments if needed
+  }
+end
+
+-- Keybinding examp
+local map = vim.keymap.set
+map('n', '<leader>rr', function()
+  return search_with_telescope_regex()
+end, { noremap = true, silent = true })
+
+map('n', '<leader>rg', function()
+  local search = require 'marlon.customfuncs.search'
+  return search.search_with_telescope()
+end, { noremap = true, silent = true })

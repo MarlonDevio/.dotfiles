@@ -107,3 +107,5 @@ alias kconf='nvim "/Users/marlon/.config/kitty/kitty.conf"'
 
 alias iservices='~/bin/industria_services.sh'
 alias tdf='~/bin/tdf'
+
+alias cpara='~/bin/create_para_folders.sh'
