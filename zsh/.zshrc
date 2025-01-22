@@ -31,9 +31,6 @@ setopt hist_verify
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_comple
 # ---- Zoxide (better cd) ---ents to fzf.
 _fzf_comprun() {
   local command=$1
@@ -47,59 +44,30 @@ _fzf_comprun() {
   esac
 }
 
-function cpwdir() {
-    # Prompt the user to enter a name for the alias
-    
-    name="$1"
-    # Ensure the name is not empty
-    if [ -z "$name" ]; then
-        echo "Alias name cannot be empty. Please provide a valid name."
-        return 1
-    fi
-    
-    # Get the current directory
-    dir=$(pwd)
-
-    # Copy the current directory to the clipboard (optional)
-    echo "$dir" | pbcopy
-
-    # Check if the alias already exists in ~/.zshrc or ~/.aliases.zsh
-    if grep -q "alias $name=" ~/.zshrc || grep -q "alias $name=" ~/.aliases.zsh; then
-        echo "Alias '$name' already exists in ~/.zshrc or ~/.aliases.zsh."
-    else
-        # Create an alias in ~/.zshrc
-        echo "alias $name='cd \"$dir\"'" >> ~/.aliases.zsh
-
-        # Reload .zshrc to make the alias immediately available
-        source ~/.zshrc
-
-        echo "Alias '$name' created for directory '$dir'"
-    fi
-}
-# ----- Bat (better cat) -----
+# ----- bat (better cat) -----
 
 
-# ---- Eza (better ls) -----
+# ---- eza (better ls) -----
 
 alias ls="eza --icons=always"
 
-# ---- TheFuck -----
+# ---- thefuck -----
 
 # thefuck alias
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
 
-# ---- Zoxide (better cd) ----
+# ---- zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
 alias cd="z"
 
-# - See the source code (completion.{bash,zsh}) for the details.
+# - see the source code (completion.{bash,zsh}) for the details.
 fzf_compgen_path() {
   fd --hidden --exclude .git . "$1"
 }
 
-# Use fd to generate the list for directory completion
+# use fd to generate the list for directory completion
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
@@ -107,32 +75,32 @@ _fzf_compgen_dir() {
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
-export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export fzf_ctrl_t_opts="--preview '$show_file_or_dir_preview'"
+export fzf_alt_c_opts="--preview 'eza --tree --color=always {} | head -200'"
 
-# Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the argum-
+# advanced customization of fzf options via _fzf_comprun function
+# - the first argument to the function is the name of the command.
+# - you should make sure to pass the rest of the argum-
 #
-# # Set up fzf key bindings and fuzzy completion
+# # set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
 # --- setup fzf theme ---
-fg="#CBE0F0"
+fg="#cbe0f0"
 bg="#011628"
 bg_highlight="#143652"
-purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
+purple="#b388ff"
+blue="#06bce4"
+cyan="#2cf9ed"
 
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export fzf_default_opts="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
-# -- Use fd instead of fzf --
+# -- use fd instead of fzf --
 
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-# Add this function to your .zshrc
+export fzf_default_command="fd --hidden --strip-cwd-prefix --exclude .git"
+export fzf_ctrl_t_command="$fzf_default_command"
+export fzf_alt_c_command="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+# add this function to your .zshrc
 function search() {
   rg --color=always --line-number --no-heading --smart-case "${*:-}" |
     fzf --ansi \
@@ -142,75 +110,41 @@ function search() {
         --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
         --bind 'enter:become(nvim {1} +{2})'
 }
-function spdf() {
-     # Combine results from rg and pdfgrep
-     ( rg --color=always --line-number --no-heading --smart-case ${*:-} ;
-       pdfgrep -n -i ${*:-} *.pdf 2>/dev/null | sed 's/^/PDF:/' ) |
-     fzf --ansi \
-         --color hl:-1:underline,hl+:-1:underline:reverse \
-         --delimiter : \
-         --preview 'if [[ {1} == PDF:* ]]; then
-                       pdftotext -f {2} -l {2} ${1#PDF:} - | bat --color=always -l txt -H {2};
-                     else
-                       bat --color=always {1} --highlight-line {2};
-                     fi' \
-         --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-         --bind 'enter:become(if [[ {1} == PDF:* ]]; then
-                               open ${1#PDF:};
-                             else
-                               nvim {1} +{2};
-                             fi)'
- }
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to
-export PATH="~/bin:$PATH"
+# use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - the first argument to the function ($1) is the base path to
 
-source ~/.aliases.zsh
-export DOTNET_ROOT=/opt/homebrew/Cellar/dotnet/8.0.4/libexec
-export PATH="$PATH:/Users/marlon/.dotnet/tools"
+# source ~/.aliases.zsh
+export dotnet_root=/opt/homebrew/cellar/dotnet/8.0.4/libexec
+export path="$path:/users/marlon/.dotnet/tools"
 
-# # export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
+# # export path="$home/miniconda3/bin:$path"  # commented out by conda initialize
 #
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/marlon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# !! contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/users/marlon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 # if [ $? -eq 0 ]; then
 #     eval "$__conda_setup"
 # else
-#     if [ -f "/Users/marlon/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/marlon/miniconda3/etc/profile.d/conda.sh"
+#     if [ -f "/users/marlon/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/users/marlon/miniconda3/etc/profile.d/conda.sh"
 #     else
-#         export PATH="/Users/marlon/miniconda3/bin:$PATH"
+#         export path="/users/marlon/miniconda3/bin:$path"
 #     fi
 # fi
 # unset __conda_setup
 # <<< conda initialize <<<
 
-export PATH=/usr/local/share/dotnet:$PATH
-export PATH=$PATH:$HOME/bin
-export EDITOR=/opt/homebrew/bin/nvim
-source /Users/marlon/.config/broot/launcher/bash/br
+export path=/usr/local/share/dotnet:$path
+export path=$path:$home/bin
+export editor=/opt/homebrew/bin/nvim
 
 
-# Add to your .bashrc or .zshrc
-function search_files() {
-    fd --type f | fzf --preview "bat --style=numbers --color=always --line-range :500 {}"
-}
-
-function search_content() {
-    rg --files | fzf --preview "rg --ignore-case --no-heading --line-number --color=always {q} {} | bat --style=numbers --color=always --line-range :500"
-}
-
-function search_pdfs() {
-    fd --extension pdf | fzf --preview "pdfgrep -n {q} {} | bat --language=plain --style=plain --paging=never"
-}
 eval "$(gh copilot alias -- zsh)"
 
-source /Users/marlon/.phpbrew/bashrc
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/marlon/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+### managed by rancher desktop start (do not edit)
+export path="/users/marlon/.rd/bin:$path"
+### managed by rancher desktop end (do not edit)
 
 set -o vi
-export COLORTERM=truecolor
+export colorterm=truecolor

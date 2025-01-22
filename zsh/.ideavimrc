@@ -1,6 +1,5 @@
 set scrolloff=10
 set history=1000
-
 let mapleader = " "
 set trackactionids
 set showmode
@@ -10,7 +9,7 @@ set clipboard+=unnamedplus
 set notimeout
 set which-key
 let g:WhichKeyDesc_display = "<leader>d Display"
-
+set relativenumber
 set hlsearch
 set incsearch
 set ignorecase
